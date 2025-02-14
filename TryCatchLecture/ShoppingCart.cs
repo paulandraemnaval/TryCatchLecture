@@ -12,15 +12,16 @@ namespace TryCatchLecture
         private Dictionary<string, int> _items = new();
         public string userId { get; private set; } = userID;
         private string[] promoCodes = { "promo1", "promo2" };
+
         public void AddItem(string item)
         {
-            if(item  == null || item == "")
+            if (item == null || item == "")
             {
                 Console.WriteLine("Please enter an item name");
                 return;
             }
 
-            if(_items.ContainsKey(item))
+            if (_items.ContainsKey(item))
             {
                 _items[item]++;
             }
@@ -32,30 +33,22 @@ namespace TryCatchLecture
 
         public void RemoveItem(string item)
         {
-            if( item == null || item == "")
+            if (item == null || item == "")
             {
                 Console.WriteLine("Please enter an item name");
                 return;
             }
-
-            try
+            if (_items.ContainsKey(item))
             {
-                if (_items.ContainsKey(item))
+                _items[item]--;
+                if (_items[item] == 0)
                 {
-                    _items[item]--;
-                    if (_items[item] == 0)
-                    {
-                        _items.Remove(item);
-                    }
-                }
-                else
-                {
-                    throw new ItemDoesNotExistException(item, $"Item {item} does not exist in the shopping cart");
+                    _items.Remove(item);
                 }
             }
-            catch
+            else
             {
-                throw new Exception();
+                throw new ItemDoesNotExistException(item, $"Item {item} does not exist in the shopping cart");
             }
         }
 

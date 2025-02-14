@@ -82,3 +82,4 @@ C:\Users\Lenovo\Desktop\3rdyr 2nd sem\EDP THROWBACK\TryCatchLecture\TryCatchLect
 C:\Users\Lenovo\Desktop\3rdyr 2nd sem\EDP THROWBACK\TryCatchLecture\TryCatchLecture\obj\Debug\net8.0\TryCatchLecture.pdb
 C:\Users\Lenovo\Desktop\3rdyr 2nd sem\EDP THROWBACK\TryCatchLecture\TryCatchLecture\obj\Debug\net8.0\TryCatchLecture.genruntimeconfig.cache
 C:\Users\Lenovo\Desktop\3rdyr 2nd sem\EDP THROWBACK\TryCatchLecture\TryCatchLecture\obj\Debug\net8.0\ref\TryCatchLecture.dll
+C:\Users\Lenovo\Desktop\3rdyr 2nd sem\EDP THROWBACK\TryCatchLecture\TryCatchLecture\obj\Debug\net8.0\TryCatchLecture.sourcelink.json

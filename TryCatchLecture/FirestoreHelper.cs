@@ -55,51 +55,5 @@ namespace TryCatchLecture
             dd.PrintAttribs();
         }
 
-       
-        
-        public static async Task CheckEmail(User userarg)
-        {
-            if(userarg.Email == null || userarg.Email == "")
-            {
-                return;
-            }
-
-            //get the data from server
-            CollectionReference collection = Database.Collection("Users");
-            QuerySnapshot snapshot = await collection.GetSnapshotAsync();
-
-            //check if input email is already in database
-            try
-            {
-                List<string> EmailList = new List<string>();
-                if (EmailList.Contains(userarg.Email))
-                {
-                    foreach (DocumentSnapshot document in snapshot.Documents)
-                    {
-                        User user = document.ConvertTo<User>();
-                        EmailList.Add(user.Email);
-                    }
-                    //check
-                    if (EmailList.Contains(userarg.Email))
-                    {
-                        throw new EmailAlreadyExistsException(userarg.Email, "this email already exists!");
-                    }
-                    else
-                    {
-                        await collection.AddAsync(userarg);
-                        Console.WriteLine("User Added");
-                    };
-                }
-            }
-            catch (EmailAlreadyExistsException ex)
-            {
-                Console.WriteLine($"email {ex.attemptedEmail} alreaady exists");
-            }
-        }
-        public class EmailAlreadyExistsException(string email, string message) : Exception(message)
-        {
-            public string attemptedEmail { get; private set; } = email;
-        }
-        }
     }
 }
